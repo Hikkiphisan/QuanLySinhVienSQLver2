@@ -101,6 +101,29 @@ SELECT * FROM Mark;
 -- Kiểm tra bảng Subject
 SELECT * FROM Subject;
 
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+
+SELECT Cl.StudentId, CL.StudentName, Cl.Address, Cl.Phone, AVG(M.Mark) AS "Điểm trung bình"
+From Mark M
+         INNER JOIN Student Cl ON Cl.StudentID = M.StudentID
+Group By Cl.StudentId, CL.StudentName, Cl.Phone
+Order by AVG(M.Mark) DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Hiển thị tất cả thông tin môn học có điểm thi cao nhất
 SELECT M.SubID,M.Mark,Sub.SubName
 FROM Subject Sub
